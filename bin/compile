@@ -56,7 +56,7 @@ BUNDLE_DEST=`mktemp -d "$BUILDPACK_DIR/build-XXXX"`
 HOME=$METEOR_DIR $METEOR build --directory $BUNDLE_DEST
 
 echo "-----> BUDLE_DEST, HOME VAR SET"
-
+echo "-----> $(ls $BUNDLE_DEST)"
 mv $BUNDLE_DEST/bundle "$COMPILE_DIR/app"
 
 echo "-----> MV"
