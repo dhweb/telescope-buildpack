@@ -1,34 +1,34 @@
-# Meteor Buildpack Horse
+# Heroku buildpack: Meteorite
 
-A heroku buildpack for Meteor v0.9.3+, using meteor's native packaging system
-(sorry meteorite) and designed to be as simple and readable as possible.
+This build pack allows you to easily deploy meteor apps to heroku using [meteorite](http://github.com/oortcloud/meteorite). It's easy to use different branches of meteor and any smart package you can lay your hands on.
 
-## Extras
+## Usage
 
-The basic buildpack should function correctly for any normal-ish meteor app,
-with or without npm-container.  For extra steps needed for your particular build,
-just add shell scripts to the "extras" folder and they will get sourced into the 
-build.
+```bash
+heroku create --stack cedar --buildpack https://github.com/oortcloud/heroku-buildpack-meteorite.git
+```
 
-Extras included in this branch:
- - ``mongohq-url.sh``: Set ``MONGO_URL`` to the value of ``MONGOHQ_URL``
- - ``phantomjs.sh``: Include phantomjs for use with ``spiderable``.
+Then `git push` to heroku as usual.
 
-## Where things go
+## NOTES
 
-This buildpack creates a directory ``.meteor/heroku_build`` (``$COMPILE_DIR``)
-inside the app checkout, and puts all the binaries and the built app in there.
-So it ends up having the usual unixy ``bin/``, ``lib/``, ``share`` etc
-subdirectories.  Those directories are added to ``$PATH`` and
-``$LD_LIBRARY_PATH`` appropriately.
+You need to set the `ROOT_URL` environment variable:
 
-So ``$COMPILE_DIR/bin`` etc are great places to put any extra binaries or stuff
-if you need to in custom extras.
+```bash
+heroku config:add ROOT_URL=http://your.domain.com
+```
 
-## Why horse?
+You can specify meteor settings by setting the `METEOR_SETTINGS` environment variable:
 
-There are a gazillian forks and branches of various buildpacks remixing the
-words "heroku", "buildpack", and "meteor", many of which are abandoned or
-outdated or broken, and it's really hard to keep them straight.
+```bash
+heroku config:add METEOR_SETTINGS='{"herp":"derp"}'
+```
 
-So this one is the horse one.
+
+You need to have a verified account so the buildpack can add a `mongohq:sandbox` addon.
+
+## Websockets
+
+To enable websockets on Heroku, you will need to enable the "labs" feature:
+
+```heroku labs:enable websockets```
