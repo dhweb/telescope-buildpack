@@ -9,7 +9,7 @@ install_meteor() {
   cd $BUILD_DIR
   echo "Installing meteor"
   
-#  cd .meteor/checkout
+  cd .meteor/checkout
   curl https://install.meteor.com/ | sh
 }
 
