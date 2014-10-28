@@ -53,7 +53,7 @@ cd $APP_CHECKOUT_DIR
 BUNDLE_DEST=`mktemp -d "$BUILDPACK_DIR/build-XXXX"`
 HOME=$METEOR_DIR $METEOR build --directory $BUNDLE_DEST
 mv $BUNDLE_DEST "$COMPILE_DIR/app"
-rmdir $BUNDLE_DEST
+#rmdir $BUNDLE_DEST
 
 # If we use npm, run npm install.
 if [ -e "$COMPILE_DIR"/app/programs/server/package.json ]; then
