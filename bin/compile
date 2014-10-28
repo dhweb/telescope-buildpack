@@ -79,6 +79,6 @@ EOF
 # source scripts in 'extra' dir, if any.  Create them for custom stuff like
 # binary dependencies, phantomjs for spiderable, etc.
 echo "-----> Running extras"
-for file in `ls "$BUILDPACK_DIR" | sort`; do
+for file in `ls "$COMPILE_DIR" | sort`; do
     echo $file
 done
