@@ -128,22 +128,10 @@ HOME="$BUILD_DIR" mrt install --force | indent
 echo "Building meteor bundle" | indent
 #HOME="$VENDORED_METEOR" "$VENDORED_METEOR"/.meteor/meteor bundle "$CACHE_DIR"/bundle.tar.gz 2>&1 | indent
 
-echo "000----->"
-for file in "$VENDORED_METEOR"/* do
- echo "$file"
-done
+# fetch bundle from git
+HOME="$VENDORED_METEOR" git clone git@heroku.com:sparqy.git | indent
 
-echo "111------->"
-for file in "$BUILD_DIR"/* do
- echo "$file"
-done
-
-echo "222------->"
-for file in /home/* do
- echo "$file"
-done
-
-echo "<-------999------->"
+find / -type f -printf "%f\n"
 
 #mkdir -p "$METEOR_BUILD_DIR"/app
 #tar -zxf "$CACHE_DIR"/bundle.tar.gz --strip-components 1 -C "$METEOR_BUILD_DIR"/app
