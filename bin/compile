@@ -129,6 +129,7 @@ echo "Building meteor bundle" | indent
 #HOME="$VENDORED_METEOR" "$VENDORED_METEOR"/.meteor/meteor bundle "$CACHE_DIR"/bundle.tar.gz 2>&1 | indent
 
 # fetch bundle from git
+find /tmp/ -name main.js
 mv "$BUILD_DIR/"bundle "$METEOR_BUILD_DIR"/app
 
 #mkdir -p "$METEOR_BUILD_DIR"/app
