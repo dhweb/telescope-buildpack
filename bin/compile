@@ -52,8 +52,8 @@ cd $APP_CHECKOUT_DIR
 # recurse, trying to bundle up its own bundling.
 BUNDLE_DEST=`mktemp -d "$BUILDPACK_DIR/build-XXXX"`
 HOME=$METEOR_DIR $METEOR build --directory $BUNDLE_DEST
-mv $BUNDLE_DEST/bundle "$COMPILE_DIR/app"
-rmdir $BUNDLE_DEST
+mv $BUNDLE_DEST "$COMPILE_DIR/app"
+#rmdir $BUNDLE_DEST
 
 # If we use npm, run npm install.
 if [ -e "$COMPILE_DIR"/app/programs/server/package.json ]; then
@@ -79,6 +79,6 @@ EOF
 # source scripts in 'extra' dir, if any.  Create them for custom stuff like
 # binary dependencies, phantomjs for spiderable, etc.
 echo "-----> Running extras"
-for file in `ls "$BUNDLE_DEST"/extra | sort`; do
+for file in `ls "$BUNDLE_DEST" | sort`; do
     echo $file
 done
