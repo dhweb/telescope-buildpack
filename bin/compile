@@ -149,9 +149,9 @@ echo "Building meteor bundle" | indent
 #HOME="$VENDORED_METEOR" "$VENDORED_METEOR"/.meteor/meteor bundle "$CACHE_DIR"/bundle.tar.gz 2>&1 | indent
 
 mkdir -p "$METEOR_BUILD_DIR"/app
-#cp -r "$BUILD_DIR/"bundle/* "$METEOR_BUILD_DIR"/app/
+cp -r "$BUILD_DIR/"bundle/* "$METEOR_BUILD_DIR"/app/
 
-HOME="$VENDORED_METEOR" "$VENDORED_METEOR"/.meteor/meteor build --debug --directory "$METEOR_BUILD_DIR"/app | indent
+#HOME="$VENDORED_METEOR" "$VENDORED_METEOR"/.meteor/meteor build --debug --directory "$METEOR_BUILD_DIR"/app | indent
 
 #mkdir -p "$METEOR_BUILD_DIR"/app
 #tar -zxf "$CACHE_DIR"/bundle.tar.gz --strip-components 1 -C "$METEOR_BUILD_DIR"/app
@@ -167,7 +167,7 @@ ls -la "$METEOR_BUILD_DIR"/app
 
 echo "-----> Installing npm packages"
 
-mv -f "$METEOR_BUILD_DIR"/app/bundle/* "$METEOR_BUILD_DIR"/app/
+#mv -f "$METEOR_BUILD_DIR"/app/bundle/* "$METEOR_BUILD_DIR"/app/
 
 run_npm "prune" "$METEOR_BUILD_DIR/app/programs/server" | indent
 run_npm "uninstall fibers" "$METEOR_BUILD_DIR/app/programs/server" | indent
