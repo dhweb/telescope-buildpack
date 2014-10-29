@@ -129,20 +129,17 @@ echo "Building meteor bundle" | indent
 #HOME="$VENDORED_METEOR" "$VENDORED_METEOR"/.meteor/meteor bundle "$CACHE_DIR"/bundle.tar.gz 2>&1 | indent
 
 echo "000----->"
-for file in "$VENDORED_METEOR"
-do
+for file in "$VENDORED_METEOR"/* do
  echo "$file"
 done
 
 echo "111------->"
-for file in "$BUILD_DIR"
-do
+for file in "$BUILD_DIR"/* do
  echo "$file"
 done
 
 echo "222------->"
-for file in "ls /home"
-do
+for file in /home/* do
  echo "$file"
 done
 
