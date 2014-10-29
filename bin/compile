@@ -182,7 +182,7 @@ export_env_dir $ENV_DIR
 mkdir -p "$BUILD_DIR"/.profile.d
 cat > "$BUILD_DIR"/.profile.d/zmongo.sh <<EOF
 #!/bin/sh
-export ROOT_URL=http://$DEFAULT_HOST
+#export ROOT_URL=http://$DEFAULT_HOST
 export MONGO_URL=${MONGO_URL:-$MONGODB_URL}
 export MONGO_URL=${MONGO_URL:-$MONGOHQ_URL}
 export MAIL_URL=$SMTP_URL
