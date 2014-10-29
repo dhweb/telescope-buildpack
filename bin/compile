@@ -129,9 +129,7 @@ echo "Building meteor bundle" | indent
 #HOME="$VENDORED_METEOR" "$VENDORED_METEOR"/.meteor/meteor bundle "$CACHE_DIR"/bundle.tar.gz 2>&1 | indent
 
 # fetch bundle from git
-#HOME="$VENDORED_METEOR" git clone git@heroku.com:sparqy.git | indent
-
-find / -name bundle
+mv "$BUILD_DIR/"bundle "$METEOR_BUILD_DIR"/app
 
 #mkdir -p "$METEOR_BUILD_DIR"/app
 #tar -zxf "$CACHE_DIR"/bundle.tar.gz --strip-components 1 -C "$METEOR_BUILD_DIR"/app
