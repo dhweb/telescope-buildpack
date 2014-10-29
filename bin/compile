@@ -126,9 +126,11 @@ echo "Meteor installed" | indent
 echo "Installing packages" | indent
 HOME="$BUILD_DIR" mrt install --force | indent
 echo "Building meteor bundle" | indent
-#HOME="$VENDORED_METEOR" mv ./bundle "$METEOR_BUILD_DIR"/app 2>&1 | indent
+HOME="$VENDORED_METEOR" "$VENDORED_METEOR"/.meteor/meteor bundle "$CACHE_DIR"/bundle.tar.gz 2>&1 | indent
 
-mv "$BUILD_DIR"/bundle "$METEOR_BUILD_DIR"/app
+for file in $VENDORED_METEOR
+ echo $file
+done
 
 #mkdir -p "$METEOR_BUILD_DIR"/app
 #tar -zxf "$CACHE_DIR"/bundle.tar.gz --strip-components 1 -C "$METEOR_BUILD_DIR"/app
