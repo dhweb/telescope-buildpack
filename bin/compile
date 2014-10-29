@@ -133,7 +133,7 @@ mkdir -p "$METEOR_BUILD_DIR"/app
 cp -r "$BUILD_DIR/"bundle/* "$METEOR_BUILD_DIR"/app/
 
 cd "$METEOR_BUILD_DIR"/app/programs/server
-$VENDORED_NODE/bin/node $VENDORED_NODE/bin/npm
+$VENDORED_NODE/bin/node $VENDORED_NODE/bin/npm install
 
 ############################################
 
