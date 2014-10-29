@@ -141,7 +141,7 @@ do
 done
 
 echo "222------->"
-for file in "$Home"
+for file in "/home"
 do
  echo "$file"
 done
